@@ -43,7 +43,6 @@ import javafx.application.Application;
 public class Robot extends TimedRobot {
 	
 	public static AHRS ahrs;
-	AnalogInput ultrasonic;
 	
 	
 	public static final DriveTrain drivetrain  
@@ -75,13 +74,16 @@ public class Robot extends TimedRobot {
 		  
 		m_oi = new OI();
 		
-		ultrasonic = new AnalogInput(0);
-		SmartDashboard.putData(drivetrain);
+		
+		
 		SmartDashboard.putData(Scheduler.getInstance());
-		SmartDashboard.putData(ultrasonic);
+    	SmartDashboard.putData(drivetrain);
+    	SmartDashboard.putData(drivetrain.getUltrasonic());
+    	SmartDashboard.putData(ahrs);
+    	
 		
 		
-		//Application.launch(MainApp.class);
+		
 	}
 
 	/**
@@ -153,10 +155,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		//Application.launch(MainApp.class);
-		//System.out.println(ultrasonic.getVoltage() + " -testing voltage");
-		
-		
+		SmartDashboard.putNumber("Distance form Sensor 1 " , drivetrain.getUltrasonicDouble() / 0.02431373);
 	}
 
 	/**
