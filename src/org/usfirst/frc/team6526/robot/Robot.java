@@ -30,10 +30,14 @@ public class Robot extends TimedRobot {
 		
 		//SmartDashboard
 		SmartDashboard.putData(Scheduler.getInstance());
-    	SmartDashboard.putData(drivetrain);
-    	SmartDashboard.putData(drivetrain.getUltrasonic());
-    	SmartDashboard.putData(drivetrain.getAHRS());
-    	SmartDashboard.putNumber("Distance form Sensor 1 " , drivetrain.getUltrasonicInches());
+    	//SmartDashboard.putData(drivetrain);
+    	//SmartDashboard.putData(drivetrain.getUltrasonic());
+    	//SmartDashboard.putData(drivetrain.getAHRS());
+    	//SmartDashboard.putNumber("Distance form Sensor 1 " , drivetrain.getUltrasonicInches());
+		
+    	//Compare the PID result and the Input value 
+    	SmartDashboard.putNumber("PID result from drivetrain", drivetrain.getPIDResult());
+    	SmartDashboard.putNumber("Angle value from AHRS sensor", drivetrain.getAngleARHS());
    
     	//Cameras
 	}

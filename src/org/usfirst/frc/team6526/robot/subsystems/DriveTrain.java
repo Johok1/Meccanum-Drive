@@ -9,13 +9,16 @@ import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
+//import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 
 
+//TODO: figure out how the returned PID data responds to the angle data and how we can use that to manipulate motors
 
+public class DriveTrain extends PIDSubsystem {
+	
 
-public class DriveTrain extends Subsystem {
 	//Motors	
 	 private Spark frontRight = new Spark(RobotMap.fright);
 	 private Spark frontLeft = new Spark(RobotMap.fleft);
@@ -24,18 +27,25 @@ public class DriveTrain extends Subsystem {
 	 
 	 //Manipulators
 	 private AnalogInput ultrasonic = new AnalogInput(0);
-	 private  AHRS ahrs = new AHRS(SPI.Port.kMXP); 
+	 private static  AHRS ahrs = new AHRS(SPI.Port.kMXP); 
 	 
 	 //Misc
 	 private double ultraToInches = 0.02431373;
+	 private double pidResult;
 	 private MecanumDrive drive = new MecanumDrive(frontLeft, frontRight, rearLeft, rearRight);
-
+	 
+	 public DriveTrain() {
+			super(2,0,0);
+			this.setSetpoint(0);
+			
+			//TODO: look into other methods to implement 
+		}
 
 	 public void initDefaultCommand() {
     	setDefaultCommand(new FeildOreintatedDriveJoystick());
     }
     
-	 
+	 //Function methods 
     public void mecannumDriveOreintated(double leftx, double lefty,double rightx){
     	drive.driveCartesian(lefty*.5, -leftx*.5,rightx*.5,ahrs.getAngle());
     }
@@ -55,4 +65,26 @@ public class DriveTrain extends Subsystem {
 	public Sendable getAHRS() {
 		return ahrs;
 	}
+	
+	public double getPIDResult() {
+		return pidResult;
+	}
+	
+	public double getAngleARHS() {
+		return ahrs.getAngle();
+	}
+
+
+	//PIDSubsystem method overrides
+	@Override
+	public double returnPIDInput() {
+		//TODO: test what type of data getAngle() returns
+		return ahrs.getAngle();
+	}
+
+
+	@Override
+	protected void usePIDOutput(double arg0) {
+		this.pidResult = arg0;
+	}	
 }
