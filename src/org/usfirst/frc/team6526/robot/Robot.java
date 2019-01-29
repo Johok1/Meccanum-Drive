@@ -17,6 +17,14 @@ public class Robot extends TimedRobot {
 	
 	//Subsystems
 	public static final DriveTrain drivetrain = new DriveTrain();
+	//please note that I haven't tested this
+	Compressor mainCompressor = new Compressor(1,1);
+	mainCompressor.setClosedLoopControl(true);
+	mainCompressor.setClosedLoopControl(false);
+	Solenoid piston1 = new Solenoid(1);
+	Solenoid piston2 = new Solenoid(2);
+	mainCompressor.start;
+
 	
 	//Misc
 	public static OI m_oi;
