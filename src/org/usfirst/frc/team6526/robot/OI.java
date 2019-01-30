@@ -7,7 +7,10 @@
 
 package org.usfirst.frc.team6526.robot;
 
+import org.usfirst.frc.team6526.robot.commands.RotateDegree90;
+
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.command.Command;
 
 public class OI {
 	 XboxController controller = new XboxController(0);
@@ -47,6 +50,17 @@ public class OI {
 	 }
 	 public double rightX() {
 		 return controller.getRawAxis(4);
+	 }
+	 RotateDegree90 reeeeee;
+	 public void spinningDeathRobot() {
+		 if(controller.getAButtonPressed()) {
+			 //spinning death start 
+			 reeeeee.start();
+		 }
+		 if(controller.getAButtonReleased()) {
+			 //please stop the spinning death plz thx 
+			reeeeee.cancel();
+		 }
 	 }
 	
 	 
