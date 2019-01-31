@@ -7,6 +7,9 @@
 
 package org.usfirst.frc.team6526.robot;
 
+//imported compressor
+import edu.wpi.first.wpilibj.Compressor;
+
 import org.usfirst.frc.team6526.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
