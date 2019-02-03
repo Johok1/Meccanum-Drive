@@ -30,11 +30,8 @@ public class Robot extends TimedRobot {
 		
 		//SmartDashboard
 		SmartDashboard.putData(Scheduler.getInstance());
-    	SmartDashboard.putData(drivetrain);
-    	SmartDashboard.putData(drivetrain.getUltrasonic());
-    	SmartDashboard.putData(drivetrain.getAHRS());
-    	SmartDashboard.putNumber("Distance form Sensor 1 " , drivetrain.getUltrasonicInches());
-   
+    
+		
     	//Cameras
 	}
 

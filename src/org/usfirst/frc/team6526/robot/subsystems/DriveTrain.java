@@ -7,7 +7,7 @@ import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.SPI;
-import edu.wpi.first.wpilibj.Sendable;
+
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
@@ -16,6 +16,8 @@ import edu.wpi.first.wpilibj.drive.MecanumDrive;
 
 
 public class DriveTrain extends Subsystem {
+	//Set all sensors and even drive methods and stuff to public so we can have easier access 
+	
 	//Motors	
 	 private Spark frontRight = new Spark(RobotMap.fright);
 	 private Spark frontLeft = new Spark(RobotMap.fleft);
@@ -23,12 +25,12 @@ public class DriveTrain extends Subsystem {
 	 private Spark rearLeft = new Spark(RobotMap.rleft);
 	 
 	 //Manipulators
-	 private AnalogInput ultrasonic = new AnalogInput(0);
-	 private  AHRS ahrs = new AHRS(SPI.Port.kMXP); 
+	 public AnalogInput ultrasonic = new AnalogInput(0);
+	 public  AHRS ahrs = new AHRS(SPI.Port.kMXP); 
 	 
 	 //Misc
-	 private double ultraToInches = 0.02431373;
-	 private MecanumDrive drive = new MecanumDrive(frontLeft, frontRight, rearLeft, rearRight);
+	 public static final double ultraToInches = 0.02431373;
+	 public MecanumDrive drive = new MecanumDrive(frontLeft, frontRight, rearLeft, rearRight);
 
 
 	 public void initDefaultCommand() {
@@ -43,16 +45,9 @@ public class DriveTrain extends Subsystem {
     	drive.driveCartesian(lefty*.5, -leftx*.5,rightx*.5);
     }
 
-    //Getters
-	public Sendable getUltrasonic() {
-		return ultrasonic;
-	}
-
+   
 	public double getUltrasonicInches() {
 		return ultrasonic.getVoltage()/ultraToInches;
 	}
 
-	public Sendable getAHRS() {
-		return ahrs;
-	}
 }
