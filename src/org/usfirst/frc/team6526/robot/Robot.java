@@ -8,6 +8,8 @@
 package org.usfirst.frc.team6526.robot;
 
 import org.usfirst.frc.team6526.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team6526.robot.subsystems.TurretTilt;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -17,6 +19,7 @@ public class Robot extends TimedRobot {
 	
 	//Subsystems
 	public static final DriveTrain drivetrain = new DriveTrain();
+	public static final TurretTilt turretTilt = new TurretTilt();
 	
 	//Misc
 	public static OI m_oi;
@@ -30,6 +33,8 @@ public class Robot extends TimedRobot {
 		
 		//SmartDashboard
 		SmartDashboard.putData(Scheduler.getInstance());
+		
+		SmartDashboard.putData(this.turretTilt);
     
 		
     	//Cameras
