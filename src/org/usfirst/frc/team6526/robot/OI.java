@@ -39,6 +39,11 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
+	 public OI() {
+		 //Triggers in here
+		 
+	 }
+	 
 	 public double leftX() {
 		return controller.getRawAxis(0);
 	 }

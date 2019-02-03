@@ -7,10 +7,11 @@
 
 package org.usfirst.frc.team6526.robot;
 
-//imported compressor
-import edu.wpi.first.wpilibj.Compressor;
-
+import org.usfirst.frc.team6526.robot.commands.SolClose;
+import org.usfirst.frc.team6526.robot.commands.SolOpen;
 import org.usfirst.frc.team6526.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team6526.robot.subsystems.PnuematicTest;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -20,14 +21,7 @@ public class Robot extends TimedRobot {
 	
 	//Subsystems
 	public static final DriveTrain drivetrain = new DriveTrain();
-	//please note that I haven't tested this
-	Compressor mainCompressor = new Compressor(1,1);
-	mainCompressor.setClosedLoopControl(true);
-	mainCompressor.setClosedLoopControl(false);
-	Solenoid piston1 = new Solenoid(1);
-	Solenoid piston2 = new Solenoid(2);
-	mainCompressor.start;
-
+	public static final PnuematicTest pnuematicTest = new PnuematicTest();
 	
 	//Misc
 	public static OI m_oi;
@@ -41,11 +35,11 @@ public class Robot extends TimedRobot {
 		
 		//SmartDashboard
 		SmartDashboard.putData(Scheduler.getInstance());
-    	SmartDashboard.putData(drivetrain);
-    	SmartDashboard.putData(drivetrain.getUltrasonic());
-    	SmartDashboard.putData(drivetrain.getAHRS());
-    	SmartDashboard.putNumber("Distance form Sensor 1 " , drivetrain.getUltrasonicInches());
-   
+		
+		SmartDashboard.putData(new SolClose());
+		SmartDashboard.putData(new SolOpen());
+    
+		
     	//Cameras
 	}
 
