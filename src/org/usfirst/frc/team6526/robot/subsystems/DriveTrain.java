@@ -24,6 +24,11 @@ public class DriveTrain extends Subsystem implements PIDOutput{
 	 private Spark rearRight = new Spark(RobotMap.rright);
 	 private Spark rearLeft = new Spark(RobotMap.rleft);
 	 
+	 //constants 
+	 public double p = 0; 
+	 public double i = 0; 
+	 public double d = 0; 
+	 
 	 //Manipulators
 	 public AnalogInput ultrasonic = new AnalogInput(0);
 	 public  AHRS ahrs = new AHRS(SPI.Port.kMXP); 
@@ -34,7 +39,7 @@ public class DriveTrain extends Subsystem implements PIDOutput{
 	 public PIDController controller; 
 	 public double output;
 	 public DriveTrain() {
-		 controller = new PIDController(.2,0,0,ahrs,this);
+		 controller = new PIDController(0.03,0,0,ahrs,this);
 		 controller.setInputRange(-180, 180);
 		 controller.setOutputRange(-1, 1);
 		 controller.setAbsoluteTolerance(0.05);
@@ -44,7 +49,7 @@ public class DriveTrain extends Subsystem implements PIDOutput{
 
 
 	 public void initDefaultCommand() {
-    	//setDefaultCommand(new FeildOreintatedDriveJoystick());
+    	setDefaultCommand(new FeildOreintatedDriveJoystick());
     }
     
 	 
@@ -52,7 +57,7 @@ public class DriveTrain extends Subsystem implements PIDOutput{
     	drive.driveCartesian(lefty*.5, -leftx*.5,rightx*.5,ahrs.getAngle());
     }
     public void mecannumDrive(double leftx, double lefty,double rightx){
-    	drive.driveCartesian(lefty*.5, -leftx*.5,rightx*.5);
+    	drive.driveCartesian(lefty*.5, -leftx*.5,rightx*.3);
     }
 
    

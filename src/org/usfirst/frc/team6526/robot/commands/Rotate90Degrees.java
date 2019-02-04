@@ -15,7 +15,7 @@ public class Rotate90Degrees extends Command{
     }
 
     protected void initialize() {
-    	Robot.drivetrain.controller.setSetpoint(90);
+    	Robot.drivetrain.controller.setSetpoint(180);
     	Robot.drivetrain.controller.enable();
     }
 

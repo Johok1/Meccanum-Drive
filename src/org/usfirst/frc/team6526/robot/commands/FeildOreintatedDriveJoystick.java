@@ -5,6 +5,7 @@ import org.usfirst.frc.team6526.robot.OI;
 import org.usfirst.frc.team6526.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 
@@ -21,6 +22,7 @@ public class FeildOreintatedDriveJoystick extends Command {
 
     protected void execute() {
     	Robot.drivetrain.mecannumDriveOreintated(m_oi.leftX(),m_oi.leftY(),m_oi.rightX());
+    	SmartDashboard.putNumber("Distance one", Robot.drivetrain.getUltrasonicInches());
     }
 
     protected boolean isFinished() {

@@ -33,12 +33,16 @@ public class Robot extends TimedRobot {
 		//SmartDashboard
 		SmartDashboard.putData(Scheduler.getInstance());
 		SmartDashboard.putData(this.drivetrain.ahrs);
+	//	SmartDashboard.putNumber("Distance one", drivetrain.getUltrasonicInches());
+		
 		
 		//Should give access to the command 
 		SmartDashboard.putData(new Rotate90Degrees());
 		
+		
+		
 		//Should give access to the command, dont want constantly this command 
-		SmartDashboard.putData(new FeildOreintatedDriveJoystick());
+		//SmartDashboard.putData(new FeildOreintatedDriveJoystick());
     
    
     	//Cameras
