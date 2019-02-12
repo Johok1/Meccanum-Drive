@@ -1,5 +1,5 @@
 package org.usfirst.frc.team6526.robot.subsystems;
-//still not 100% sure about this code just yet
+//still not 100% sure about this code just yet which is why I'm making it seperate from Josh's
 
 import org.usfirst.frc.team6526.robot.RobotMap;
 import edu.wpi.first.wpilibj.Sendable;
