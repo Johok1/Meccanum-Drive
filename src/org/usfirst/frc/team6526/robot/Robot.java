@@ -11,6 +11,7 @@ import org.usfirst.frc.team6526.robot.commands.SolClose;
 import org.usfirst.frc.team6526.robot.commands.SolOpen;
 import org.usfirst.frc.team6526.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team6526.robot.subsystems.PnuematicTest;
+import org.usfirst.frc.team6526.robot.subsystems.Pneumatics;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
