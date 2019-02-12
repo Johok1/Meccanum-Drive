@@ -6,6 +6,8 @@ package org.usfirst.frc.team6526.robot;
 public class RobotMap {
 	//PCM
 	public static int solenoid = 1;
+	public static int compressor = 1;
+	public static int piston = 1;
 	
 	//PWM
 	public static int fright = 2;
