@@ -10,12 +10,10 @@ public class RobotMap {
 	public static int fleft = 1;
 	public static int rright = 0;
 	public static int rleft = 3;
-	public static int tilt1 = 4; 
-	public static int tilt2 = 5; 
 	
 	//Analog Ports 	
 	public static int ultrasonic = 0;
-	public static int tiltGyro = 1; 
+	//Assumption alert ^ 
 	
 	//Serial Connections
 	
