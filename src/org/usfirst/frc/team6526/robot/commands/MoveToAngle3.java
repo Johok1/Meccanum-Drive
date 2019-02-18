@@ -13,7 +13,7 @@ public class MoveToAngle3 extends Command{
 	}
 	
 	public void initialize() {
-		Robot.arm.controller.setSetpoint(0);
+		Robot.arm.controller.setSetpoint(75);
 		
 	}
 	
@@ -22,7 +22,7 @@ public class MoveToAngle3 extends Command{
 		SmartDashboard.putNumber("Setpoint: ", Robot.arm.controller.getSetpoint());
 		SmartDashboard.putNumber("Voltage value ", Robot.arm.encoder.absoluteEncoder.getVoltage());
 		SmartDashboard.putNumber("PID output: ", Robot.arm.output);
-		Robot.arm.moveToAngle(Robot.arm.output*.2);
+		Robot.arm.moveToAngle(Robot.arm.output);
 		Robot.arm.controller.enable();
 	}
 	
@@ -32,7 +32,7 @@ public class MoveToAngle3 extends Command{
 	}
 	
 	public void end () {
-		Robot.arm.controller.disable();
+		//Robot.arm.controller.disable();
 		Robot.arm.motor2.setSpeed(0);
 	}
 	

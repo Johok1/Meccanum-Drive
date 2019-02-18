@@ -10,11 +10,13 @@ package org.usfirst.frc.team6526.robot;
 
 
 
-import org.usfirst.frc.team6526.robot.commands.MoveTillLimit;
+
 import org.usfirst.frc.team6526.robot.commands.MoveToAngle;
 import org.usfirst.frc.team6526.robot.commands.MoveToAngle2;
 import org.usfirst.frc.team6526.robot.commands.MoveToAngle3;
 import org.usfirst.frc.team6526.robot.commands.MoveToAngle4;
+import org.usfirst.frc.team6526.robot.commands.SolenoidControl;
+import org.usfirst.frc.team6526.robot.commands.TestRed;
 import org.usfirst.frc.team6526.robot.subsystems.Arm;
 
 import com.kauailabs.navx.frc.AHRS;
@@ -57,8 +59,9 @@ public class Robot extends TimedRobot {
 		
 		
 		//SmartDashboard
-
-		SmartDashboard.putData(new MoveTillLimit());
+		SmartDashboard.putData(new SolenoidControl());
+		
+		SmartDashboard.putData(new TestRed());
 		SmartDashboard.putData(new MoveToAngle());
 		SmartDashboard.putData(new MoveToAngle4());
 		SmartDashboard.putData(new MoveToAngle2());
@@ -94,10 +97,19 @@ public class Robot extends TimedRobot {
 	public void teleopInit() {	
 		//arm.moveToAngle(0);
 	}
-	
+
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
+		//SON
+		//if (max<Robot.arm.encoder.absoluteEncoder.getVoltage())max=Robot.arm.encoder.absoluteEncoder.getVoltage();
+		//if (min>Robot.arm.encoder.absoluteEncoder.getVoltage())min=Robot.arm.encoder.absoluteEncoder.getVoltage();
+		SmartDashboard.putNumber("Raw Voltage: " , Robot.arm.encoder.absoluteEncoder.getVoltage());
+		
+		SmartDashboard.putNumber("Converted Unit" , Robot.arm.encoder.pidGet());
+		//-------------------------------------------
+		
 	
 	}
 		

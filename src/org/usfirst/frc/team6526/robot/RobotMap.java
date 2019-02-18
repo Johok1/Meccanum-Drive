@@ -4,7 +4,8 @@ package org.usfirst.frc.team6526.robot;
 
 
 public class RobotMap {
-	
+	//Solenoid
+	public static int solenoid1 = 0; 
 	//PWM
 	public static int fright = 2;
 	public static int fleft = 1;

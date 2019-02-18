@@ -8,7 +8,9 @@ import edu.wpi.first.wpilibj.PIDSourceType;
 
 public class AbsoluteEncoderPID implements PIDSource {
 	public AnalogInput absoluteEncoder = new AnalogInput(1);
-
+	private double max=.860,min=.674;
+	private double scalingC=100/(max-min);
+	
 	@Override
 	public void setPIDSourceType(PIDSourceType pidSource) {
 		pidSource = PIDSourceType.kDisplacement;
@@ -24,7 +26,8 @@ public class AbsoluteEncoderPID implements PIDSource {
 	@Override
 	public double pidGet() {
 	
-		return absoluteEncoder.getVoltage()*56.25;
+		return scalingC*(absoluteEncoder.getVoltage()-min);
+
 	}
 
 	
