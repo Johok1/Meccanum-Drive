@@ -53,6 +53,12 @@ public class OI {
 	 public double rightX() {
 		 return controller.getRawAxis(4);
 	 }
+	 public boolean getBButton() {
+		 return controller.getRawButton(2);
+	 }
+	 public boolean getXButton() {
+		return controller.getRawButton(3); 
+	 }
 	
 	 
 	 
